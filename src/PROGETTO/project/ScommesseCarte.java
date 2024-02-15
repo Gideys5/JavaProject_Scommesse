@@ -222,7 +222,6 @@ public class ScommesseCarte {
               ScommesseUtente.setSaldo(ScommesseUtente.getSaldo() +  (ScommesseUtente.getPuntata() * 2));
               //INSERISCO NELLO STORICO LA VINCITA'
               ScommesseUtente.setStorico((ScommesseUtente.getPuntata() * 2));
-              System.out.println("+ " + ScommesseUtente.getStorico());
         }
 
     }

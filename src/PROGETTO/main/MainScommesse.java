@@ -248,7 +248,7 @@ public class MainScommesse {
                                 System.out.println("Non hai effettuato alcuna scommessa, peccato");
 
                             }else {
-                                System.out.println("ECCO IL TUO STORICO:");
+                                System.out.println("ECCO IL TUO STORICO DI VINCITE E PERDITE:");
                                 ScommesseUtente.getStorico().forEach(System.out::println);
                             }
                             break;
@@ -266,6 +266,7 @@ public class MainScommesse {
                     }
                     if (ScommesseUtente.getSaldo() <=1){
                         System.out.println("Ti abbiamo sbattuto fuori non hai più un soldo, torna a trovarci quando avrai la fresca");
+                        System.out.println("ECCO LO STORICO DELLE TUE VINCITE E PERDITE:");
                         ScommesseUtente.getStorico().forEach(System.out::println);
                     }
                 } catch (Exception e) {
