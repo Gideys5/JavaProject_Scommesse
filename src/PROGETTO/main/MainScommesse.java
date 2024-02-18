@@ -214,6 +214,7 @@ public class MainScommesse {
 
                         case 4://SLOT
                             System.out.println("LE REGOLE DELLE SLOT SONO SEMPLICI, VINCI X100 SE ESCONO 4 FIGURE UGUALI!!!");
+                            System.out.println("[OGNI VOLTA CHE GIRERAI LA SLOT VERRA' DECREMENTATA DAL TUO CONTO LA PUNTATA CHE HAI FATTO INIZIALMENTE,ATTENTO!!!]");
                             System.out.println("Vuoi iniziare a giocare?[si][no]");
                             tastiera.nextLine();//PULISCE IL BUFFER
                             while (true) {
