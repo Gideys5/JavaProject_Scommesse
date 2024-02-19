@@ -19,7 +19,6 @@ public class ScommesseCalcio extends ScommesseCalcistiche implements Interface_C
      * Il nome della squadra.
      */
     private String nome;
-
     // VARIABILE STATICA --> condivisa da tutti gli oggetti
     /**
      * La quota per le scommesse sul gol.

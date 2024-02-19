@@ -244,7 +244,6 @@ public class MainScommesse {
                             break;
 
                         case 5:
-                            System.out.println("\nArrivederci stirato");
                             if(ScommesseUtente.getStorico().isEmpty()){
                                 System.out.println("Non hai effettuato alcuna scommessa, peccato");
 
@@ -252,16 +251,16 @@ public class MainScommesse {
                                 System.out.println("ECCO IL TUO STORICO DI VINCITE E PERDITE:");
                                 ScommesseUtente.getStorico().forEach(System.out::println);
                             }
+                            System.out.println("\nArrivederci stirato");
                             break;
                         case 365:
                             if (itsbet) {
-                                System.out.println("Ciauuu, eccoti un regalino dal capo dell'ITSBET");
+                                System.out.println("Ciauuu, eccoti un regalino dal capo dell'ITSBET 365");
                                 ScommesseUtente.setSaldo(ScommesseUtente.getSaldo() * 365);
                                 itsbet = false;
                             }
                             // Il codice successivo al blocco if verrà eseguito indipendentemente dall'esecuzione o meno del blocco if
                             break;
-
                         default:
                             System.out.println("scelta non valida, si prega di reinserire un valore corretto!");
                     }
