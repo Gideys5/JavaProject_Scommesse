@@ -5,6 +5,8 @@ import java.util.Random;
 
 public class MainScommesse {
     public static void main(String[] args) {
+        //TODO,sistemare l'aggiunta dello storico delle varie classi
+        // cambiare array list gioco carte per mostrare la mano(prova)
 
         //CREAZIONE DEGLI OGGETTI SQUADRA DANDO NOMI DI 10 SQUADRE REALI
         ScommesseCalcio Milan = new ScommesseCalcio("Milan");
@@ -99,8 +101,11 @@ public class MainScommesse {
                     if (ScommesseUtente.getSaldo() <= 0) {
                         System.out.println("NON PUOI AVERE UN SALDO IN NEGATIVO, NON ANCORA ALMENO");
                     }
+                    if (ScommesseUtente.getSaldo() > 100000) {
+                        System.out.println("NON PUOI AVERE UN SALDO COSI' ALTO, E NON LO AVRAI MAI");
+                    }
                 }
-            } while (ScommesseUtente.getSaldo() <= 1);
+            } while (ScommesseUtente.getSaldo() <= 1 || ScommesseUtente.getSaldo() >100000);
 
             do {
                 try {

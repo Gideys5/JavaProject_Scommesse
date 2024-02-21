@@ -158,13 +158,13 @@ public class ScommesseCalcio extends ScommesseCalcistiche implements Interface_C
         int[] risultato = generaRisultatoPartita(squadra_casa, squadra_trasferta);
         int golCasa = risultato[0];
         int golTrasferta = risultato[1];
+        boolean vincita=false;
 
         //1)CONDIZIONE DI VITTORIA, VINCE SQUADRA CASA
         if (golCasa > golTrasferta && ScommesseUtente.getPronostico() == 1) {
-
             System.out.printf("HAI VINTO, ECCO LA TUA VINCITA':  %.2f %n", (ScommesseUtente.getPuntata() * squadra_casa.quotaIniziale));
             ScommesseUtente.setSaldo(ScommesseUtente.getSaldo() + (ScommesseUtente.getPuntata() * squadra_casa.quotaIniziale));
-
+            vincita=true;
             //INSERISCO NELLO STORICO LA VINCITA'
             ScommesseUtente.setStorico((ScommesseUtente.getPuntata() * squadra_casa.quotaIniziale));
 
@@ -172,7 +172,7 @@ public class ScommesseCalcio extends ScommesseCalcistiche implements Interface_C
         } else if (golCasa == golTrasferta && ScommesseUtente.getPronostico() == 2) {
             System.out.printf("HAI VINTO, ECCO LA TUA VINCITA':  %.2f %n", (ScommesseUtente.getPuntata() * ((squadra_casa.quotaIniziale + squadra_trasferta.quotaIniziale) / 2)));
             ScommesseUtente.setSaldo(ScommesseUtente.getSaldo() +  (ScommesseUtente.getPuntata() * ((squadra_casa.quotaIniziale + squadra_trasferta.quotaIniziale) / 2)));
-
+            vincita=true;
             //INSERISCO NELLO STORICO LA VINCITA'
             ScommesseUtente.setStorico((ScommesseUtente.getPuntata() * ((squadra_casa.quotaIniziale + squadra_trasferta.quotaIniziale) / 2)));
 
@@ -180,7 +180,7 @@ public class ScommesseCalcio extends ScommesseCalcistiche implements Interface_C
         } else if (golTrasferta > golCasa && ScommesseUtente.getPronostico() == 3) {
             System.out.printf("HAI VINTO, ECCO LA TUA VINCITA':  %.2f %n", (ScommesseUtente.getPuntata() * squadra_trasferta.quotaIniziale));
             ScommesseUtente.setSaldo(ScommesseUtente.getSaldo() + (ScommesseUtente.getPuntata() * squadra_trasferta.quotaIniziale));
-
+            vincita=true;
             //INSERISCO NELLO STORICO LA VINCITA'
             ScommesseUtente.setStorico((ScommesseUtente.getPuntata() * squadra_trasferta.quotaIniziale));
 
@@ -188,7 +188,7 @@ public class ScommesseCalcio extends ScommesseCalcistiche implements Interface_C
         } else if (golCasa > 0 && golTrasferta > 0 && ScommesseUtente.getPronostico() == 4) {
             System.out.printf("HAI VINTO, ECCO LA TUA VINCITA':  %.2f %n", (ScommesseUtente.getPuntata() * ScommesseCalcio.gol));
             ScommesseUtente.setSaldo(ScommesseUtente.getSaldo() +  (ScommesseUtente.getPuntata() * ScommesseCalcio.gol));
-
+            vincita=true;
             //INSERISCO NELLO STORICO LA VINCITA'
             ScommesseUtente.setStorico((ScommesseUtente.getPuntata() * ScommesseCalcio.gol));
 
@@ -198,17 +198,13 @@ public class ScommesseCalcio extends ScommesseCalcistiche implements Interface_C
             if (golTrasferta == 0 || golCasa == 0) {
                 System.out.printf("HAI VINTO, ECCO LA TUA VINCITA':  %.2f %n", (ScommesseUtente.getPuntata() * ScommesseCalcio.noGol));
                 ScommesseUtente.setSaldo(ScommesseUtente.getSaldo() +  (ScommesseUtente.getPuntata() * ScommesseCalcio.noGol));
-
+                vincita=true;
                 //INSERISCO NELLO STORICO LA VINCITA'
                 ScommesseUtente.setStorico((ScommesseUtente.getPuntata() * ScommesseCalcio.noGol));
 
-            } else {
-                System.out.printf("HAI PERSO, LA TUA PERDITA E' STATA DI  %.2f %n", ScommesseUtente.getPuntata());
-                //INSERISCO NELLO STORICO LA PERDITA'
-                ScommesseUtente.setStorico(ScommesseUtente.getPuntata()* (-1));
             }
 
-        } else System.out.printf("HAI PERSO, LA TUA PERDITA E' STATA DI  %.2f %n", ScommesseUtente.getPuntata());
+        } else if(!vincita) System.out.printf("HAI PERSO, LA TUA PERDITA E' STATA DI  %.2f %n", ScommesseUtente.getPuntata());
         //INSERISCO NELLO STORICO LA PERDITA'
         ScommesseUtente.setStorico(ScommesseUtente.getPuntata()* (-1));
 

@@ -85,7 +85,10 @@ public class ScommesseSlot{
 
             // Controlla se ci sono 4 valori uguali --> VITTORIA
             if (risultato[0].equals(risultato[1]) && risultato[1].equals(risultato[2]) && risultato[2].equals(risultato[3])) {
+                System.out.println("🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉");
                 System.out.printf("HAI VINTO, ECCO LA TUA VINCITA':  %.2f %n", ScommesseUtente.getPuntata() * 100);
+                System.out.println("🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉");
+
                 ScommesseUtente.setSaldo(ScommesseUtente.getSaldo() + (ScommesseUtente.getPuntata() * 100));
                 //INSERISCO NELLO STORICO LA VINCITA'
                 ScommesseUtente.setStorico((ScommesseUtente.getPuntata() * 100));
