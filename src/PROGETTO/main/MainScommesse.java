@@ -5,8 +5,6 @@ import java.util.Random;
 
 public class MainScommesse {
     public static void main(String[] args) {
-        //TODO,sistemare l'aggiunta dello storico delle varie classi
-        // cambiare array list gioco carte per mostrare la mano(prova)
 
         //CREAZIONE DEGLI OGGETTI SQUADRA DANDO NOMI DI 10 SQUADRE REALI
         ScommesseCalcio Milan = new ScommesseCalcio("Milan");
@@ -87,8 +85,11 @@ public class MainScommesse {
         }
         eta = tastiera.nextInt();
         tastiera.nextLine();
-        if (eta < 18) {
-            System.out.println("Sei troppo piccolo, mi dispiace");
+        if (eta < 18  || eta > 200) {
+            if(eta<18) {
+                System.out.println("Sei troppo piccolo, mi dispiace");
+            } else
+                System.out.println("Il tuo documento non è valido, mi dispiace");
         } else {
             do {
                 //INSERIMENTO DEL PROPRIO SALDO DI GIOCO APPENA SI ENTRA
@@ -98,11 +99,11 @@ public class MainScommesse {
                     tastiera.next(); // Pulisce il buffer dell'input
                 } else {
                     ScommesseUtente.setSaldo(tastiera.nextFloat());
-                    if (ScommesseUtente.getSaldo() <= 0) {
+                    if (ScommesseUtente.getSaldo() <= 1) {
                         System.out.println("NON PUOI AVERE UN SALDO IN NEGATIVO, NON ANCORA ALMENO");
                     }
                     if (ScommesseUtente.getSaldo() > 100000) {
-                        System.out.println("NON PUOI AVERE UN SALDO COSI' ALTO, E NON LO AVRAI MAI");
+                        System.out.println("NON PUOI AVERE UN SALDO COSI' ALTO (E NON LO AVRAI MAI)");
                     }
                 }
             } while (ScommesseUtente.getSaldo() <= 1 || ScommesseUtente.getSaldo() >100000);
